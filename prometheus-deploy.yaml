@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus
+          image: prom/prometheus:v2.42.0
           args:
             - '--config.file=/etc/prometheus/prometheus.yml'
             - '--storage.tsdb.retention.time=2h'
@@ -34,7 +34,7 @@ spec:
               mountPath: /prometheus/
 
         - name: prometheus-server-configmap-reload
-          image: docker.io/jimmidyson/configmap-reload:v0.7.1
+          image: jimmidyson/configmap-reload:v0.8.0
           imagePullPolicy: Never
           args:
             - '--volume-dir=/etc/prometheus'
